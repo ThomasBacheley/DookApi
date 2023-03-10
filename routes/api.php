@@ -1,7 +1,10 @@
 <?php
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/users', function (Request $request) {
+    $users = User::all();
+    return response()->json($users);
+});
+
+Route::get('/books', function (Request $request) {
+    $books = Book::all();
+    return response()->json($books);
 });
