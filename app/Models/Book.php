@@ -19,7 +19,7 @@ class Book extends Authenticatable
      */
     protected $fillable = [
         'id',
-        'name',
+        'title',
         'author',
     ];
 
