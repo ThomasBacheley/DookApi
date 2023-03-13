@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserLibrairy>
  */
-class UserLibrairyFactory extends Factory
+class UserLibraryFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,7 +17,9 @@ class UserLibrairyFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'id' => fake()->name(),
+            'userid' => fake()->numberBetween(),
+            'bookid' => fake()->numberBetween()
         ];
     }
 }
