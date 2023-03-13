@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\UserLibrary;
+use Database\Factories\BookFactory;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +31,14 @@ Route::get('/users', function (Request $request) {
 Route::get('/books', function (Request $request) {
     $books = Book::all();
     return response()->json($books);
+});
+
+Route::get('/library', function (Request $request) {
+    $libraries = UserLibrary::all();
+    return response()->json($libraries);
+});
+
+Route::post('/library/add', function (Request $request) {
+    $parameters = $request->query->all();
+    UserLibrary::insert(["book_id" => $parameters["bid"], "user_id" => $parameters["uid"]]);
 });
