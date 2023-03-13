@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_librairies', function (Blueprint $table) {
+        Schema::create('user_libraries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('book_id');
             $table->foreignId('user_id');
@@ -26,8 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_librairies');
+        Schema::dropIfExists('user_libraries');
     }
 };
-
-
